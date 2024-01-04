@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+        <body>
+            <ul>
+                <img src="images/logo.png", alt="logo" width="300", height="85">
+                <li><a href="adminForm.html">Admin Form Page</a></li>
+                <li><a href="customerAccount.html">Customer Account</a></li>
+                <li><a href="customerLogin.html">Login</a></li>
+                <li><a href="currentOrders.html">Current Orders</a></li>
+
+            </ul>
+            <hr>
+         <div class="container">
+
+            <div class="ff">
+
+                <div class="customer">
+                    <div></div>
+                </div>
+
+    <form class="forms" id="coffeeOrderForm">
+        <h2>Select Your Coffees</h2>
+
+
+        <div id="coffeeOptions">
+            <div class="coffeeSelection">
+                <label for="coffeeType1">Select Coffee Type:</label><br>
+
+                <div id="coffeeType1">
+
+                <ol class="menu" id="menu">
+
+                    <h3 id="latte">Latte</h3> 
+
+                    <input type="checkbox" id="latte1" name="latte1" value="Caffé Latte">
+                    <label for="latte1">Caffé Latte</label>
+                    <label for="latte1Quantity">-</label>
+                   <input type="number" id="latte1Quantity" min="0">
+                   <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+
+
+                   <input type="checkbox" id="latte2" name="latte2" value="Iced Caffé Latte">
+                   <label for="latte2">Iced Caffé Latte</label>
+                   <label for="latte2Quantity">-</label>
+                  <input type="number" id="latte2Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+       
+                  <input type="checkbox" id="latte3" name="latte3" value="Vanilla Latte">
+                   <label for="latte3">Vanilla Latte</label>
+                   <label for="latte3Quantity">-</label>
+                  <input type="number" id="latte3Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                    <h3 id="americano">Americano</h3>
+                    <input type="checkbox" id="americano1" name="americano1" value="Caffé Americano">
+                   <label for="americano1">Caffé Americano</label>
+                   <label for="americano1Quantity">-</label>
+                  <input type="number" id="americano1Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                  <input type="checkbox" id="americano2" name="americano2" value="Iced Caffé Americano">
+                   <label for="americano2">Iced Caffé Americano</label>
+                   <label for="americano2Quantity">-</label>
+                  <input type="number" id="americano2Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                    <h3 id="filtre">Filtre Coffees</h3>
+                    <input type="checkbox" id="filtre1" name="filtre1" value="Fresh Filtre Coffee">
+                   <label for="filtre1">Fresh Filtre Coffee</label>
+                   <label for="filtre1Quantity">-</label>
+                  <input type="number" id="filtre1Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                  <input type="checkbox" id="filtre2" name="filtre2" value="Caffé Misto">
+                   <label for="latte2">Caffé Misto</label>
+                   <label for="filtre2Quantity">-</label>
+                  <input type="number" id="filtre2Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                  <input type="checkbox" id="filtre3" name="filtre3" value="Cold Brew Latte">
+                   <label for="latte2">Cold Brew Latte</label>
+                   <label for="filtre3Quantity">-</label>
+                  <input type="number" id="filtre3Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                  <input type="checkbox" id="filtre4" name="filtre4" value="Pumpkin Cream Cold Brew">
+                   <label for="filtre4">Pumpkin Cream Cold Brew</label>
+                   <label for="filtre4Quantity">-</label>
+                  <input type="number" id="filtre4Quantity" min="0">
+                  <select id="size">
+                    <option value="small">Small</option>
+                    <option value="tall">Tall</option>
+                    <option value="grande">Grande</option>
+                   </select><br>
+
+                </ol>
+            </div>
+            </div>
+            <label>Select Delivery Time:</label><br>
+
+            <select id="delivery">
+                <option value="now">now</option>
+                <option value="35Minutes">In 35 minutes</option>
+                <option value="tomorrow">Tomorrow</option>
+
+            </select><br>
+        </div>
+
+        <button type="submit">Add to Cart</button>
+    </form>
+</div>
+            </div>
+           
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+   
+      
+   <script>
+    const firebaseConfig = {
+       apiKey: "AIzaSyDRcVzUDe5Ui3PfGevqkY6SsZe7B1_WFUw",
+       authDomain: "apollo-fb3d5.firebaseapp.com",
+       databaseURL: "https://apollo-fb3d5-default-rtdb.europe-west1.firebasedatabase.app",
+       projectId: "apollo-fb3d5",
+       storageBucket: "apollo-fb3d5.appspot.com",
+       messagingSenderId: "4849942046",
+       appId: "1:4849942046:web:8d7b010f7724375d13780f",
+       measurementId: "G-R8MVY1VFC4"
+   };
+   
+   firebase.initializeApp(firebaseConfig);
+   const db = firebase.firestore();
+   firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+
+      console.log('User is logged in:', user.email);
+    } else {
+
+      window.location.href = 'customerLogin.html';
+    }
+  });
+  
+document.getElementById('coffeeOrderForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const db = firebase.firestore();
+  const generatedOrderNumber = Date.now().toString();
+
+  const selectedCoffees = [];
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      const coffeeType = checkbox.value;
+      const quantityInput = document.getElementById(`${checkbox.id}Quantity`);
+      const quantity = quantityInput ? parseInt(quantityInput.value) : 0;
+      console.log(quantity);
+    
+      selectedCoffees.push({ CoffeeType: coffeeType, Quantity: quantity,  });
+    
+}
+  });
+
+  const deliveryDateTime = document.getElementById('delivery').value;
+    const size = document.getElementById('size').value;
+
+  const ordersRef = db.collection("Orders");
+  selectedCoffees.forEach((order, index) => {
+    ordersRef.doc(`OrderID_${generatedOrderNumber}_${index}`).set({
+      CoffeeType: order.CoffeeType,
+      Quantity: order.Quantity,
+      DeliveryDateTime: deliveryDateTime,
+      size: size,
+    })
+    .then(() => {
+      console.log("Order successfully saved to Firestore!");
+      const deliveryDetails = encodeURIComponent(`Coffee Type: ${order.CoffeeType}, Quantity: ${order.Quantity}, Delivery Time: ${deliveryDateTime}, Size: ${size}`);
+  window.location.href = `thankYou.html?orderID=${generatedOrderNumber}&deliveryDetails=${deliveryDetails}`;
+    })
+    .catch((error) => {
+      console.error("Error saving order:", error);
+    });
+  });
+});
+   </script>
+
+        <div class="last">
+
+            <footer>
+                <hr>
+            <p>Apollo Coffee</p>
+            <p>Huzur Mah. Sarıyer/Istanbul</p>
+            <p><a href="mailto:sahiny@mef.edu.tr?subject=HTML link">Apollo</a></p>
+            <p>+90 534 747 29 53</p>
+            </footer>
+            
+        </div>
+        </body>
+
+</html>
+
+
+
+
+

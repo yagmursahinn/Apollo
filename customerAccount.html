@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+        <body>
+            <ul>
+              <img src="images/logo.png", alt="logo" width="300", height="85">
+                <li><a href="adminForm.html">Admin Form Page</a></li>
+                <li><a href="customerLogin.html">Login</a></li>
+                <li><a href="customerOrder.html">Customer Order</a></li>
+                <li><a href="currentOrders.html">Current Orders</a></li>
+
+            </ul>
+
+            <hr>
+         <div class="container">
+            <div class="ff">
+            <form class="forms" id="signupForm">
+
+
+                <label for="customerName">Name:</label><br>
+                <input type="text" id="customerName"><br>
+
+                <label for="customerSurname">Surname:</label><br>
+                <input type="text" id="customerSurname"><br>
+
+                <label for="customerPhone">Phone:</label><br>
+                <input type="number" id="customerPhone"><br>
+
+                <label for="customerEmail">Email:</label><br>
+                <input type="email" id="customerEmail"><br>
+                
+                <label for="customerPassword">Password:</label><br>
+                <input type="number" id="customerPassword"><br>
+            
+                <button type="submit">Register</button><br>
+            </form>
+            <div id="confirmationMessage" style="display: none;">
+                <p>Registered successfully!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+   
+<script>
+ const firebaseConfig = {
+    apiKey: "AIzaSyDRcVzUDe5Ui3PfGevqkY6SsZe7B1_WFUw",
+    authDomain: "apollo-fb3d5.firebaseapp.com",
+    databaseURL: "https://apollo-fb3d5-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "apollo-fb3d5",
+    storageBucket: "apollo-fb3d5.appspot.com",
+    messagingSenderId: "4849942046",
+    appId: "1:4849942046:web:8d7b010f7724375d13780f",
+    measurementId: "G-R8MVY1VFC4"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.firestore();
+
+const signupForm = document.getElementById('signupForm');
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  const name = document.getElementById('customerName').value;
+  const surname = document.getElementById('customerSurname').value;
+  const phone = document.getElementById('customerPhone').value;
+  const email = document.getElementById('customerEmail').value;
+  const password = document.getElementById('customerPassword').value;
+
+
+  function generateCustomerID() {
+
+  const timestamp = Date.now(); 
+  const random = Math.floor(Math.random() * 1000); 
+  
+  return timestamp + '_' + random;
+}
+
+
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+
+      const user = userCredential.user;
+      
+
+      const customerID = generateCustomerID();
+    
+      auth.collection("users").doc(user.uid).set({
+        name: name,
+        surname: surname,
+        phone: phone,
+        email: email,
+        password: password,
+        customerID: customerID 
+
+      })
+      .then(function(){
+
+      console.log('user registered', customerID);
+
+      window.location.href = 'confirmationPage.html';
+
+      })
+      .catch(function(error){
+        console.error("Error storing user information: ", error);
+      });
+    })
+    .catch(function(error) {
+      console.error("Error creating user: ", error);
+    });
+});
+        </script>
+
+        <div class="last">
+
+            <footer>
+                <hr>
+            <p>Apollo Coffee</p>
+            <p>Huzur Mah. Sarıyer/Istanbul</p>
+            <p><a href="mailto:sahiny@mef.edu.tr?subject=HTML link">Apollo</a></p>
+            <p>+90 534 747 29 53</p>
+            </footer>
+        </div>
+        </body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+        <body>
+            <ul>
+              <img src="images/logo.png", alt="logo" width="300", height="85">
+                <li><a href="customerAccount.html">Create Account</a></li>
+                <li><a href="customerLogin.html">Login</a></li>
+                <li><a href="customerOrder.html">Give Order</a></li>
+                <li><a href="currentOrders.html">Current Orders</a></li>
+
+            </ul>
+
+            <hr>
+         <div class="container">
+
+            <div class="ff">
+                <form class="forms" id="coffeeForm">
+                    <label for="coffeeName">Coffee Name:</label><br>
+                    <input type="text" id="coffeeName" name="coffeeName" required><br>
+                    
+                    <label for="coffeeType">Coffee Type:</label><br>
+                    <input type="text" id="coffeeType" name="coffeeType" required><br>
+                
+                    <label for="smallPrice">Small Size Price:</label><br>
+                    <input type="number" id="smallPrice" name="smallPrice" required><br>
+                
+                    <label for="tallPrice">Tall Size Price:</label><br>
+                    <input type="number" id="tallPrice" name="tallPrice" required><br>
+                
+                    <label for="grandePrice">Grande Size Price:</label><br>
+                    <input type="number" id="grandePrice" name="grandePrice" required><br>
+                
+                    <button type="submit">Add Coffee</button><br>
+                </form>
+                <div id="confirmationMessage" style="display: none;">
+                    <p>New coffee added successfully!</p>
+                </div>
+            </div>
+           
+        </div>
+
+      
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyDRcVzUDe5Ui3PfGevqkY6SsZe7B1_WFUw",
+    authDomain: "apollo-fb3d5.firebaseapp.com",
+    databaseURL: "https://apollo-fb3d5-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "apollo-fb3d5",
+    storageBucket: "apollo-fb3d5.appspot.com",
+    messagingSenderId: "4849942046",
+    appId: "1:4849942046:web:8d7b010f7724375d13780f",
+    measurementId: "G-R8MVY1VFC4"
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+
+document.getElementById('coffeeForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('coffeeName').value;
+  const type = document.getElementById('coffeeType').value;
+  const smallPrice = parseFloat(document.getElementById('smallPrice').value);
+  const tallPrice = parseFloat(document.getElementById('tallPrice').value);
+  const grandePrice = parseFloat(document.getElementById('grandePrice').value);
+
+  // Add coffee to Firestore
+  db.collection('coffees').add({
+    name: name,
+    type: type,
+    prices: {
+      small: smallPrice,
+      tall: tallPrice,
+      grande: grandePrice
+    }
+  })
+  .then(function(docRef) {
+    console.log('Coffee added with ID: ', docRef.id);
+
+  })
+  .catch(function(error) {
+    console.error('Error adding coffee: ', error);
+
+  });
+});
+
+</script>
+
+        <div class="last">
+            <footer>
+                <hr>
+            <p>Apollo Coffee</p>
+            <p>Huzur Mah. Sarıyer/Istanbul</p>
+            <p><a href="mailto:sahiny@mef.edu.tr?subject=HTML link">Apollo</a></p>
+            <p>+90 534 747 29 53</p>
+            </footer>
+            
+        </div>
+        </body>
+
+</html>
+
