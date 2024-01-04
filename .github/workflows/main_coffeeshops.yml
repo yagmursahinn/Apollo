@@ -60,4 +60,4 @@ jobs:
           app-name: 'coffeeShops'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CC0A59391C604268ADCC522AF15E4C64 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_81B62D211827427983AA30E2FF9990DA }}
